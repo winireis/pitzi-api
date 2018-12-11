@@ -1,0 +1,21 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: development
+  password: development
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: api-pitzi_development
+
+test:
+  <<: *default
+  database: api-pitzi_test
+
+production:
+  <<: *default
+  database: api-pitzi_production
+  username: api-pitzi
+  password: <%= ENV['API-PITZI_DATABASE_PASSWORD'] %>
