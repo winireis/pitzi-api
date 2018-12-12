@@ -88,7 +88,7 @@ RSpec.describe 'Orders API' do
 
   # Test suite for PUT /users/:user_id/orders/:id
   describe 'PUT /users/:user_id/orders/:id' do
-    let(:valid_attributes) { { name: 'Iphone' } }
+    let(:valid_attributes) { { device_model: 'Iphone' } }
 
     before { put "/users/#{user_id}/orders/#{id}", params: valid_attributes }
 
@@ -98,8 +98,8 @@ RSpec.describe 'Orders API' do
       end
 
       it 'updates the order' do
-        updated_item = Order.find(id)
-        expect(updated_item.name).to match(/Iphone/)
+        updated_order = Order.find(id)
+        expect(updated_order.device_model).to match(/Iphone/)
       end
     end
 
